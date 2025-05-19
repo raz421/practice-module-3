@@ -1,4 +1,4 @@
-import AvoidDuplication from "./components/DuplicateState";
+import Planets from "./components/Planents";
 
 function App() {
   return (
@@ -6,7 +6,10 @@ function App() {
       {/* <ChangeColor /> */}
       {/* <FeedbackForm /> */}
       {/* <MirrorProps /> */}
-      <AvoidDuplication />
+      {/* <AvoidDuplication /> */}
+      {/* <AvoidDuplication /> */}
+      {/* <Accordian /> */}
+      <Planets />
     </>
   );
 }

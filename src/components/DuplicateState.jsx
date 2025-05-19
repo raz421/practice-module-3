@@ -8,20 +8,34 @@ const initialItems = [
 export default function AvoidDuplication() {
   const [items, setItems] = useState(initialItems);
   const [selectedItems, setSelectedItems] = useState(0);
-  const handleSelectedItems = (itemId) => {
-    setSelectedItems(items.find((item) => item.id === itemId));
+  const newSelectedItems = items.find((item) => item.id === selectedItems);
+  const handleSelectedItems = (itemId, e) => {
+    setItems(
+      items.map((item) => {
+        if (item.id === itemId) {
+          return {
+            ...item,
+            title: e.target.value,
+          };
+        }
+        return item;
+      })
+    );
   };
   return (
     <div>
       <ul>
         {items.map((item) => (
           <li key={item.id}>
-            {item.title}{" "}
-            <button onClick={() => handleSelectedItems(item.id)}>Choose</button>
+            <input
+              value={item.title}
+              onChange={(e) => handleSelectedItems(item.id, e)}
+            ></input>
+            <button onClick={() => setSelectedItems(item.id)}>Choose </button>
           </li>
         ))}
       </ul>
-      <p>you choose {selectedItems.title}</p>
+      <p>you choose {newSelectedItems.title}</p>
     </div>
   );
 }
