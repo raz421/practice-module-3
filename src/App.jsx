@@ -1,16 +1,22 @@
-import Planets from "./components/Planents";
+import { useState } from "react";
+import Counter from "./components/Counter";
 
 function App() {
+  const [check, setChecked] = useState(true);
+
   return (
-    <>
-      {/* <ChangeColor /> */}
-      {/* <FeedbackForm /> */}
-      {/* <MirrorProps /> */}
-      {/* <AvoidDuplication /> */}
-      {/* <AvoidDuplication /> */}
-      {/* <Accordian /> */}
-      <Planets />
-    </>
+    <div>
+      <Counter />
+      <hr />
+      {check && <Counter />}
+      <input
+        type="checkbox"
+        checked={check}
+        onChange={(e) => {
+          setChecked(e.target.checked);
+        }}
+      />
+    </div>
   );
 }
 
